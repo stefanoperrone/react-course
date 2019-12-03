@@ -1,22 +1,28 @@
 import React from "react";
-import "./App.css";
-import People from "./People";
-import PeopleStateFull from "./PeopleStateFull";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import Routes from "./Routes";
 
-function Greetings(props) {
-  return <h1>Ciao, {props.value}</h1>;
-}
-
-function App() {
-  const firstComponent = <Greetings value="Mondo!!!" />;
-
+const App = () => {
   return (
-    <div className="App">
-      {firstComponent}
-      <People />
-      <PeopleStateFull />
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/users-list">Users List</Link>
+            </li>
+            <li>
+              <Link to="/user-add">Add New User</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
