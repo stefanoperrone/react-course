@@ -38,7 +38,7 @@ class Routes extends React.Component {
           />
         </Route>
         <Route path="/">
-          <Greetings value="Mondo!!!" />;
+          <Greetings greeting="Mondo!!!" />;
         </Route>
       </Switch>
     );
