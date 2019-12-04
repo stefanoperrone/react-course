@@ -1,68 +1,111 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Course
 
-## Available Scripts
+1. **Node**
+		
+	è una libreria JS che esegue codice JavaScript al di fuori del browser.
 
-In the project directory, you can run:
+2. **npm** (Node Package Manager)
+	
+	è un gestore dei pacchetti. Tutti moduli installati nell'applicativo vengono definiti nel file ***package.json*** (equivalente del pom)
 
-### `yarn start`
+3. **Progetto**
+	
+- creazione 
+	
+			> npx react-create-app <project-name>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- avvio: 
+	
+			> cd <project-name>
+			> npm start
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+4. **Visual Studio Code**
 
-### `yarn test`
+	installazione ide
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **React**
 
-### `yarn build`
++  ***Introduzione***
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+	libreria JS che consente di costruire UI. Usata per generare *single page application*
+	è una applicazione web the interagisce con l'utente e dinamicamente riscrive la pagina corrente invece che ricaricare delle nuove intere pagine da un server.
+	
++ ***Virtual DOM***
+    		
+     rispetto ad Angular viene creata una copia del DOM e viene applicato un algoritmo di diff con l'originale che consente di re-renderizzare solo la parte coinvolta da un evento che ne modifica il DOM 
+    	
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
++ ***JSX***
+   		
+   	JS eXtension consente di unire il linguaggio di markup con la logica nello stesso file. Le espressioni JSX diventatno funzioni JavaScript che producono oggetti JavaScript. è passibile passare attributi _*attr="value"*_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ ***Componenti***
 
-### `yarn eject`
+   	parti del UI che compongono il DOM che sono indipendenti, riutilizzabili ed atomiche.
+		
+	due modi equivalenti per definirle:
+		
+	- funzione JS
+   	- classe (contiene funz. aggiuntive)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
++ **Props**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	le proprietà sono in sola lettura, e sono considerate come delle funzioni che possono essere:
+ 
+ 	- *“pure”* perché non provano a cambiare i propri dati in input:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   					function somma(a, b) {
+   						return a + b;
+				    }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+	- *"impure"* in quanto alterano gli input:
 
-## Learn More
+					function preleva(conto, ammontare) {
+						conto.totale -= ammontare;
+					}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+	Per effettuare un controllo sul tipo delle proprietà passate ad una componente usare la libreria *prop-types*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+			> npm install --save prop-types
+				
+	*Data Binding*: è di tipo *one-way* in quanto la sincronizzazione dei dati si propaga solo dalla sorgente verso l’interfaccia utente. Come in Angular si può realizzare *two-way* utilizzando la libreria Redux.
 
-### Code Splitting
++  **CSS** 
+	
+	customizzare lo stile delle componenti in due modi:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+	- tag html con la props *style*
+	- libreria *styled-component*
 
-### Analyzing the Bundle Size
+			> npm install --save styled-components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+	
+	### *Esercizio.* 
 
-### Making a Progressive Web App
+	creare un applicazione che consenta di:
+	- inserire l'anagrafica di una persona (Nome, Cognome, Età)
+	- visualizzare la lista degli elementi inseriti
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+6.	**Routes**
 
-### Advanced Configuration
+	per inserire la navigazione tra le diverse componenti è necessario definire delle routes
+	
+			> npm install --save react-router-dom
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+7. 	**Redux**
 
-### Deployment
+	è una libreria JS che fornisce uno stato persistente all'applicativo consentendo di tenere traccia dei cambiamenti dello stato attraverso il dispatch di azioni. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+	- Installazione 
+	
+			> npm install --save redux
+			> npm install --save react-redux
+			> npm install --save redux-devtools-extension
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+	- [Download extension Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+	- *Actions*: sono il payloads delle informazioni che vengono inviata dall applicazione allo store.
+
+	- *Reducer*: specifica come lo stato dell'applicazione cambia in risposta alla azione inviata allo store
+
