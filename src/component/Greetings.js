@@ -13,7 +13,7 @@ function Greetings(props) {
             props.setValue();
           }}
         >
-          add
+          Like
         </button>
         <h3>{props.value}</h3>
         <button
@@ -21,7 +21,7 @@ function Greetings(props) {
             props.unSetValue();
           }}
         >
-          remove
+          DisLike
         </button>
       </div>
     </div>

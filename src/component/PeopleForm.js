@@ -1,7 +1,8 @@
 import React from "react";
 import * as PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { mapDispatchToProps } from "../actions";
 class PeopleForm extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +64,7 @@ class PeopleForm extends React.Component {
         <button
           style={{ marginLeft: "30px" }}
           onClick={() => {
-            this.props.handleBackNewPerson(this.state.person);
+            this.props.savePerson(this.state.person);
             this.setState({
               person: {
                 name: "",
@@ -85,4 +86,4 @@ PeopleForm.prototypes = {
   handleBackNewPerson: PropTypes.func.isRequired
 };
 
-export default PeopleForm;
+export default connect(null, mapDispatchToProps)(PeopleForm);

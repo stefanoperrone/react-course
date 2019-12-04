@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import { rootReducer } from "./reducer";
 
-const initialValues = { value: 0 };
+const initialValues = { value: 0, people: [] };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

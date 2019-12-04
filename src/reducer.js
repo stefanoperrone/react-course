@@ -1,9 +1,11 @@
 export function rootReducer(state = 0, action) {
   switch (action.type) {
     case "ADD":
-      return { value: state.value + 1 };
+      return { ...state, value: state.value + 1 };
     case "REMOVE":
-      return { value: state.value - 1 };
+      return { ...state, value: state.value - 1 };
+    case "SAVE_PERSON":
+      return { ...state, people: [...state.people, action.person] };
     default:
       return state;
   }

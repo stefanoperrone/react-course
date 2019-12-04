@@ -2,9 +2,10 @@ import React from "react";
 import Person from "./Person";
 import styled from "styled-components";
 import { CustomTable } from "../theme";
+import { connect } from "react-redux";
 
 const People = props => {
-  return props.people ? (
+  return props.people && props.people.length > 0 ? (
     <Container>
       <CustomTable borderColor="red">
         <thead>
@@ -27,7 +28,7 @@ const People = props => {
       </CustomTable>
     </Container>
   ) : (
-    <h3>Lista Vuota</h3>
+    <h3 style={{ marginLeft: "30px" }}>Lista Vuota</h3>
   );
 };
 
@@ -37,4 +38,9 @@ export const Container = styled.div`
   margin: auto;
 `;
 
-export default People;
+export default connect(
+  state => ({
+    people: state.people
+  }),
+  null
+)(People);
