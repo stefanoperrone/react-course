@@ -12,7 +12,7 @@
 	
 - creazione 
 	
-			> npx react-create-app <project-name>
+			> npx create-react-app <project-name>
 
 - avvio: 
 	
