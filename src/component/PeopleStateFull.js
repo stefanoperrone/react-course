@@ -40,7 +40,7 @@ export const Container = styled.div`
 
 export default connect(
   state => ({
-    people: state.people
+    people: state.rootReducer.people
   }),
   null
 )(People);

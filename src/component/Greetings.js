@@ -30,7 +30,7 @@ function Greetings(props) {
 
 export default connect(
   state => ({
-    value: state.value
+    value: state.rootReducer.value
   }),
   mapDispatchToProps
 )(Greetings);

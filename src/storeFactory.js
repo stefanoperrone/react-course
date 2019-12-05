@@ -1,7 +1,8 @@
-import { createStore, compose, applyMiddleware } from "redux";
+import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import { rootReducer } from "./reducer";
+import { reducer as formReducer } from "redux-form";
 
-const initialValues = { value: 0, people: [] };
+const initialValues = {rootReducer : {value: 0, people: [] }};
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -22,8 +23,13 @@ function logger({ getState }) {
   };
 }
 
-export const store = createStore(
+const combinedReducer = combineReducers({
   rootReducer,
+  form: formReducer
+});
+
+export const store = createStore(
+  combinedReducer,
   initialValues,
   composeEnhancers(applyMiddleware(logger))
 );

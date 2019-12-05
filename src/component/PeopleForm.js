@@ -3,30 +3,23 @@ import * as PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { mapDispatchToProps } from "../actions";
+import { Field, reduxForm, getFormValues } from "redux-form";
+
+
 class PeopleForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      person: {
-        name: "",
-        surname: "",
-        age: ""
-      },
       redirect: { status: false, path: null }
     };
   }
-
-  saveValue = event => {
-    let key = event.target.id;
-    let obj = { [key]: event.target.value };
-    this.setState({ person: { ...this.state.person, ...obj } });
-  };
 
   render() {
     return this.state.redirect.status ? (
       <Redirect to={{ pathname: this.state.redirect.path }} />
     ) : (
       <div style={{ marginBottom: "30px" }}>
+      <form>
         <table style={{ width: "300px", margin: "30px" }}>
           <thead>
             <tr>
@@ -38,39 +31,23 @@ class PeopleForm extends React.Component {
           <tbody>
             <tr>
               <td width="33%">
-                <input
-                  id="name"
-                  onChange={event => this.saveValue(event)}
-                  value={this.state.person.name}
-                ></input>
+                <Field name="name" component="input" type="text" />
               </td>
               <td width="33%">
-                <input
-                  id="surname"
-                  onChange={event => this.saveValue(event)}
-                  value={this.state.person.surname}
-                ></input>
+                <Field name="surname" component="input" type="text" />
               </td>
               <td width="33%">
-                <input
-                  id="age"
-                  onChange={event => this.saveValue(event)}
-                  value={this.state.person.age}
-                ></input>
+                <Field name="age" component="input" type="text" />
               </td>
             </tr>
           </tbody>
         </table>
+        </form>
         <button
           style={{ marginLeft: "30px" }}
           onClick={() => {
-            this.props.savePerson(this.state.person);
+            this.props.savePerson(this.props.formFields);
             this.setState({
-              person: {
-                name: "",
-                surname: "",
-                age: ""
-              },
               redirect: { status: true, path: "/users-list" }
             });
           }}
@@ -86,4 +63,12 @@ PeopleForm.prototypes = {
   handleBackNewPerson: PropTypes.func.isRequired
 };
 
-export default connect(null, mapDispatchToProps)(PeopleForm);
+const Form = reduxForm({
+  form: "FORM_PEOPLE",
+  destroyOnUnmount: true,
+  forceUnregisterOnUnmount: true,
+})(PeopleForm)
+
+export default connect(state => ({
+    formFields: getFormValues("FORM_PEOPLE")(state),
+}), mapDispatchToProps)(Form);

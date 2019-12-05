@@ -109,3 +109,17 @@
 
 	- *Reducer*: specifica come lo stato dell'applicazione cambia in risposta alla azione inviata allo store
 
+	- *Store*: è un oggetto che unisce le actions and il reducer :
+
+		-	consistenza lo stato dell'applicazione
+		-	consente accesso allo stato _getState()_
+		-	consente di aggiornare lo stato _dispatch(action)_
+
+8. **Redux-Form**
+
+	è lo strumento che consente la connessione tra React e Redux
+
+		>	npm install --save redux-form
+
+
+
