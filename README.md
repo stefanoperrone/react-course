@@ -26,7 +26,8 @@
 
 4. **Installazione IDE**
 
-	consiglio di utilizzare [Visual Studio Code](https://code.visualstudio.com/download)
+	- [WebStorm](https://www.jetbrains.com/webstorm/download/#section=windows)
+	- [Visual Studio Code](https://code.visualstudio.com/download)
 
 5. [**React**](https://reactjs.org/)
 
@@ -126,7 +127,7 @@
 
 	è lo strumento che consente la connessione tra React (UI) e Redux (store)
 
-		>	npm install --save redux-form
+		> npm install --save redux-form
 
 	Componenti fondamentali:
 
@@ -136,4 +137,32 @@
 	| reduxForm() | HOC| function che prendere un oggetto di configurazione e restistuisce una nuova function; usato per far il wrap della form component e per fare il bind con le user interaction per eseguire il dispatch di actions in Redux |
 	| `<Field/>` | Component |	componente che vive all'interno della form component wrapped; usata per connettere le componenti di input alla logica di redux |
 
+
+9. [**Styleguidist**](https://react-styleguidist.js.org/docs/getting-started.html)
+
+	Ambiente di sviluppo di componenti React isolato che genera una documentazione (guida)
+
+		> npm install --save-dev react-styleguidist
+
+	creare una cartella styleguidist all'interno del quale definiremo il file di configurazione __styleguide.config.js__
+
+			module.exports = {
+  				components: 'src/components/**/[A-Z]*.js'
+			}
+
+	la configurazione inserita è necessaria all'applicativo per capire dove andare a recuperare le componenti React che contengono la sintassi
+
+		export defaul <NameComponent>
+
+	È buon uso creare una gerarchia delle componenti andando a definire ogni componente in una cartella dedicata, all'interno della quale oltre al file .js andremo a creare un file  __Readme.md__ 
+	dovremo descriveremo un esempio di utilizzo della componente
+
+		``js
+		<Greetings value="Mondo!"/>
+
+	per eseguire l'applicativo eseguiamo il comando
+
+		> npx styleguidist server
+
+	apriamo un nuovo tab del browser inserendo l'url: [http://localhost:6060/](http://localhost:6060/)
 
