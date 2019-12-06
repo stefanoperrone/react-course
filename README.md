@@ -1,29 +1,34 @@
 ## React Course
 
-1. **Node**
+1. [**Node.js**](https://nodejs.org/it/)
 		
-	è una libreria JS che esegue codice JavaScript al di fuori del browser.
+	è una libreria JS che consente di eseguire codice JavaScript al di fuori del browser.
 
-2. **npm** (Node Package Manager)
+2. [**npm**](https://www.npmjs.com/) (Node Package Manager)
 	
-	è un gestore dei pacchetti. Tutti moduli installati nell'applicativo vengono definiti nel file ***package.json*** (equivalente del pom)
+	è un gestore dei pacchetti. Tutti moduli installati nell'applicativo vengono definiti nel file ***package.json***. 
+	L'installazione di **Node** ci fornirà la possibilità di usare il software npm.
+	La sintassi per l'installazione di una dipendenza è:
+
+			> npm install --save <dependency-name>
 
 3. **Progetto**
+
+	Per la creazione di un progetto abbiamo a disposizione _react-create-app_ che genererà la struttura del progetto con le dependencies di base
 	
-- creazione 
 	
 			> npx create-react-app <project-name>
 
-- avvio: 
+  	una volta creato il progetto è sufficiente eseguire i seguenti comandi per avviarlo
 	
 			> cd <project-name>
 			> npm start
 
-4. **Visual Studio Code**
+4. **Installazione IDE**
 
-	installazione ide
+	consiglio di utilizzare [Visual Studio Code](https://code.visualstudio.com/download)
 
-5. **React**
+5. [**React**](https://reactjs.org/)
 
 +  ***Introduzione***
 
@@ -68,42 +73,44 @@
 
 			> npm install --save prop-types
 				
-	*Data Binding*: è di tipo *one-way* in quanto la sincronizzazione dei dati si propaga solo dalla sorgente verso l’interfaccia utente. Come in Angular si può realizzare *two-way* utilizzando la libreria Redux.
+	### *Data Binding*:
+	 è di tipo *one-way* in quanto la sincronizzazione dei dati si propaga solo dalla sorgente verso l’interfaccia utente. Come in Angular si può realizzare *two-way* utilizzando la libreria Redux.
+
+	 ### *Callback Function*:
+
+	é la possibilità di passare funzioni come variabili e di eseguirle all'interno di altre funzioni.
 
 +  **CSS** 
 	
 	customizzare lo stile delle componenti in due modi:
 
 	- tag html con la props *style*
-	- libreria *styled-component*
+	- libreria [*styled-component*](https://www.styled-components.com/)
 
 			> npm install --save styled-components
 
-	
-	### *Esercizio.* 
-
-	creare un applicazione che consenta di:
-	- inserire l'anagrafica di una persona (Nome, Cognome, Età)
-	- visualizzare la lista degli elementi inseriti
-
-6.	**Routes**
+6.	[**Routes**](https://reacttraining.com/react-router/web/guides/quick-start)
 
 	per inserire la navigazione tra le diverse componenti è necessario definire delle routes
 	
 			> npm install --save react-router-dom
 
-7. 	**Redux**
+7. 	[**Redux**](https://redux.js.org/)
 
 	è una libreria JS che fornisce uno stato persistente all'applicativo consentendo di tenere traccia dei cambiamenti dello stato attraverso il dispatch di azioni. 
 
-	- Installazione 
+  	installazione delle dependency necessarie:
 	
 			> npm install --save redux
 			> npm install --save react-redux
 			> npm install --save redux-devtools-extension
 
+  	Per poter osservare le mutazioni dello stato all'interno dell'applicato è necessario:
+	- installazione estensione Chrome [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
-	- [Download extension Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+	- configurazione all'interno del progetto necessaria per effettuare il collegamento con l'estensione del browser. Consultando il repository di github [Redux DevToolsExtension](https://github.com/zalmoxisus/redux-devtools-extension)
+
+	Concetti chiave Redux:
 
 	- *Actions*: sono il payloads delle informazioni che vengono inviata dall applicazione allo store.
 
