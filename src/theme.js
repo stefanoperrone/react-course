@@ -12,35 +12,17 @@ export const CustomTable = styled.table`
   }
   tbody > tr > :hover {
     background-color: yellow;
+    color: red;
   }
-  thead > tr > :first-child {
+  thead > tr > th {
     width: 33%;
     border-bottom: 1px solid blue;
     border-right: 1px solid blue;
   }
-  thead > tr > :not(:first-child) {
-    width: 33%;
-    border-bottom: ${props =>
-      props.borderColor ? `1px solid ${props.borderColor}` : null};
-  }
-  tbody > tr > :not(:first-child) {
-    width: 33%;
-    border-bottom: ${props =>
-      props.borderColor ? `1px solid ${props.borderColor}` : null};
-  }
-  thead > tr > :last-child {
-    width: 33%;
-    border-bottom: 1px solid grey;
-    border-left: 1px solid grey;
-  }
-  tbody > tr > :first-child {
+  tbody > tr > td {
     width: 33%;
     border-bottom: 1px solid blue;
     border-right: 1px solid blue;
-  }
-  tbody > tr > :last-child {
-    width: 33%;
-    border-bottom: 1px solid grey;
-    border-left: 1px solid grey;
+    text-align: center;
   }
 `;

@@ -1,16 +1,11 @@
 import React from "react";
-import Person from "./Person";
+import Person from "../Person/Person";
+import { PropTypes } from "prop-types";
 
-let list = [
-  { name: "Luca", surname: "Verdi", age: 18 },
-  { name: "Mario", surname: "Rossi", age: 25 },
-  { name: "Paolo", surname: "Rossi", age: 30 }
-];
-
-const People = () => {
+const People = props => {
   return (
     <div style={{ width: "550px", display: "block", margin: "auto" }}>
-      <table style={{ width: "100%", marginTop: "30px" }}>
+      <table style={{ width: "100%", marginTop: "30px", textAlign: "center" }}>
         <thead>
           <tr>
             <th width="33%">Firstname</th>
@@ -19,7 +14,7 @@ const People = () => {
           </tr>
         </thead>
         <tbody>
-          {list.map((el, key) => (
+          {props.list.map((el, key) => (
             <Person
               key={key}
               name={el.name}
@@ -31,6 +26,19 @@ const People = () => {
       </table>
     </div>
   );
+};
+
+People.propTypes = {
+  /** is list of people*/
+  list: PropTypes.array
+};
+
+People.defaultProps = {
+  list: [
+    { name: "Luca", surname: "Verdi", age: 18 },
+    { name: "Mario", surname: "Rossi", age: 25 },
+    { name: "Paolo", surname: "Rossi", age: 30 }
+  ]
 };
 
 export default People;

@@ -1,9 +1,10 @@
 import React from "react";
-import Person from "./Person";
+import Person from "../Person/Person";
 import styled from "styled-components";
-import { CustomTable } from "../theme";
+import { CustomTable } from "../../theme";
+import { PropTypes } from "prop-types";
 
-const People = props => {
+const PeopleStateFull = props => {
   return props.people ? (
     <Container>
       <CustomTable borderColor="red">
@@ -37,4 +38,9 @@ export const Container = styled.div`
   margin: auto;
 `;
 
-export default People;
+PeopleStateFull.propTypes = {
+  /** list of people*/
+  people: PropTypes.array
+};
+
+export default PeopleStateFull;

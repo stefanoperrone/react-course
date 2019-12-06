@@ -81,7 +81,8 @@ class PeopleForm extends React.Component {
   }
 }
 
-PeopleForm.prototypes = {
+PeopleForm.propTypes = {
+  /** onClick callback function to save entered data*/
   handleBackNewPerson: PropTypes.func.isRequired
 };
 
